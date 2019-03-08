@@ -33,7 +33,7 @@ namespace tracking_student
             Instructor Instructor3 = new Instructor(instructorId:3, firstName:"Steve", lastName:"Brownlee", slackHandle:"steve", cohortId:2);
 
 //Student List
-            List<Student> allStudents = new List<Student>();
+        List<Student> allStudents = new List<Student>();
             allStudents.Add(Student1);
             allStudents.Add(Student2);
             allStudents.Add(Student3);
@@ -47,7 +47,7 @@ namespace tracking_student
                }
 
 //Exercise List
-            List<Exercise> allExercises = new List<Exercise>();
+        List<Exercise> allExercises = new List<Exercise>();
             allExercises.Add(Exercise1);
             allExercises.Add(Exercise2);
             allExercises.Add(Exercise3);
@@ -73,6 +73,7 @@ namespace tracking_student
             Cohort2.intructorList.Add(Instructor3);
             Cohort3.intructorList.Add(Instructor1);
 
+            Console.WriteLine("Students assigned to cohorts: ");
             Cohort1.ListCohort();
             Cohort2.ListCohort();
             Cohort3.ListCohort();
@@ -93,6 +94,8 @@ namespace tracking_student
             Instructor3.AssignExercises(Student2, Exercise6);
             Instructor3.AssignExercises(Student3, Exercise5);
             Instructor3.AssignExercises(Student3, Exercise6);
+
+            Console.WriteLine("What students are working on: ");
 
             Student1.ListExercises();
             Student2.ListExercises();
