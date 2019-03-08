@@ -6,6 +6,8 @@ namespace tracking_student
     {
         static void Main()
         {
+//Creating Everything
+
             Exercise Exercise1 = new Exercise(exerciseId: 1, exerciseName:"Lists", exerciseLanguage:"C#");
             Exercise Exercise2 = new Exercise(exerciseId: 2, exerciseName:"Dictionary", exerciseLanguage:"C#");
             Exercise Exercise3 = new Exercise(exerciseId: 3, exerciseName:"Ternary Traveler", exerciseLanguage:"Javascript");
@@ -28,6 +30,7 @@ namespace tracking_student
             Instructor Instructor1 = new Instructor(instructorId:1, firstName:"Jisie", lastName:"Davids", slackHandle:"JisieDavid", cohortId:3);
             Instructor Instructor2 = new Instructor(instructorId:2, firstName:"Andy", lastName:"Collins", slackHandle:"AndyCollins", cohortId:1);
             Instructor Instructor3 = new Instructor(instructorId:3, firstName:"Steve", lastName:"Brownlee", slackHandle:"steve", cohortId:2);
+
 //Assigning to Cohorts
 
             Cohort1.studentList.Add(Student1);
@@ -46,6 +49,7 @@ namespace tracking_student
             Cohort3.ListCohort();
 
 //Assigning Exercises
+
             Instructor1.AssignExercises(Student5, Exercise3);
             Instructor1.AssignExercises(Student5, Exercise4);
             Instructor1.AssignExercises(Student6, Exercise3);
@@ -67,6 +71,7 @@ namespace tracking_student
             Student4.ListExercises();
             Student5.ListExercises();
             Student6.ListExercises();
+
         }
     }
 }
