@@ -23,6 +23,7 @@ namespace tracking_student
         public int CohortId {get; set;}
 
         public void AssignExercises(Student student, Exercise exercise){
+
             student.studentExercises.Add(exercise);
         }
 

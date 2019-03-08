@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace tracking_student
 {
@@ -30,6 +31,34 @@ namespace tracking_student
             Instructor Instructor1 = new Instructor(instructorId:1, firstName:"Jisie", lastName:"Davids", slackHandle:"JisieDavid", cohortId:3);
             Instructor Instructor2 = new Instructor(instructorId:2, firstName:"Andy", lastName:"Collins", slackHandle:"AndyCollins", cohortId:1);
             Instructor Instructor3 = new Instructor(instructorId:3, firstName:"Steve", lastName:"Brownlee", slackHandle:"steve", cohortId:2);
+
+//Student List
+            List<Student> allStudents = new List<Student>();
+            allStudents.Add(Student1);
+            allStudents.Add(Student2);
+            allStudents.Add(Student3);
+            allStudents.Add(Student4);
+            allStudents.Add(Student5);
+            allStudents.Add(Student6);
+
+            Console.WriteLine("All students at NSS:");
+            foreach(Student student in allStudents){
+                    Console.WriteLine($"{student.FirstName} {student.LastName}");
+               }
+
+//Exercise List
+            List<Exercise> allExercises = new List<Exercise>();
+            allExercises.Add(Exercise1);
+            allExercises.Add(Exercise2);
+            allExercises.Add(Exercise3);
+            allExercises.Add(Exercise4);
+            allExercises.Add(Exercise5);
+            allExercises.Add(Exercise6);
+
+            Console.WriteLine("All exercises at NSS:");
+            foreach(Exercise exercise in allExercises){
+                    Console.WriteLine($"Name: {exercise.ExerciseName} Language: {exercise.ExerciseLanguage}");
+               }
 
 //Assigning to Cohorts
 
@@ -71,6 +100,7 @@ namespace tracking_student
             Student4.ListExercises();
             Student5.ListExercises();
             Student6.ListExercises();
+
 
         }
     }
