@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace tracking_student
 {
@@ -21,6 +22,9 @@ namespace tracking_student
         public string SlackHandle {get; set;}
         public int CohortId {get; set;}
 
+        public void AssignExercises(Student student, Exercise exercise){
+            student.studentExercises.Add(exercise);
+        }
 
     }
 }

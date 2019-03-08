@@ -5,7 +5,7 @@ namespace tracking_student
 {
     public class Student
     {
-        public Student(int cohortId, string firstName, string lastName, string slackHandle, string cohortName, int studentId){
+        public Student(int cohortId, string firstName, string lastName, string slackHandle, int studentId){
             FirstName = firstName;
             LastName = lastName;
             SlackHandle = slackHandle;
@@ -20,8 +20,16 @@ namespace tracking_student
 
        public string LastName {get; set;}
 
+       public string SlackHandle {get; set;}
+
        public int CohortId {get; set;}
 
        public List<Exercise> studentExercises {get; set;}
+
+       public void ListExercises(){
+            foreach(Exercise exercises in studentExercises){
+                    Console.WriteLine($"{FirstName} {LastName} is assigned {exercises.ExerciseName}");
+                }
+         }
     }
 }
