@@ -5,11 +5,12 @@ namespace tracking_student
 {
     public class Instructor
     {
-        public Instructor(int instructorId, string firstName, string lastName, string slackHandle, int cohortId){
+        public Instructor(int instructorId, string firstName, string lastName, string slackHandle, int cohortId, Cohort co){
             InstructorId = instructorId;
             FirstName = firstName;
             LastName = lastName;
             SlackHandle = slackHandle;
+            Cohort = co;
             CohortId = cohortId;
         }
 
@@ -20,6 +21,9 @@ namespace tracking_student
         public string LastName {get; set;}
 
         public string SlackHandle {get; set;}
+
+        public Cohort Cohort {get; set;}
+
         public int CohortId {get; set;}
 
         public void AssignExercises(Student student, Exercise exercise){

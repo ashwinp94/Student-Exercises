@@ -21,16 +21,16 @@ namespace tracking_student
             Cohort Cohort3 = new Cohort(cohortId: 3, cohortName:"Cohort 31");
 
 
-            Student Student1 = new Student(cohortId:1, firstName:"Ashwin", lastName:"Prakash", slackHandle:"ashwinp94", studentId:1);
-            Student Student4 = new Student(cohortId:1, firstName:"Mary", lastName:"Remo", slackHandle:"MaryRemo", studentId:4);
-            Student Student2 = new Student(cohortId:2, firstName:"Brian", lastName:"Neal", slackHandle:"BrianNeal", studentId:2);
-            Student Student3 = new Student(cohortId:2, firstName:"Ryan", lastName:"Dillinger", slackHandle:"RyanDillinger", studentId:3);
-            Student Student5 = new Student(cohortId:3, firstName:"Michael", lastName:"Yankura", slackHandle:"MichaelYankura", studentId:5);
-            Student Student6 = new Student(cohortId:3, firstName:"Chris", lastName:"Morgan", slackHandle:"ChrisMorgan", studentId:6);
+            Student Student1 = new Student(cohortId:1, firstName:"Ashwin", lastName:"Prakash", slackHandle:"ashwinp94", studentId:1, co: Cohort1);
+            Student Student4 = new Student(cohortId:1, firstName:"Mary", lastName:"Remo", slackHandle:"MaryRemo", studentId:4, co: Cohort1);
+            Student Student2 = new Student(cohortId:2, firstName:"Brian", lastName:"Neal", slackHandle:"BrianNeal", studentId:2, co: Cohort2);
+            Student Student3 = new Student(cohortId:2, firstName:"Ryan", lastName:"Dillinger", slackHandle:"RyanDillinger", studentId:3, co: Cohort2);
+            Student Student5 = new Student(cohortId:3, firstName:"Michael", lastName:"Yankura", slackHandle:"MichaelYankura", studentId:5, co: Cohort3);
+            Student Student6 = new Student(cohortId:3, firstName:"Chris", lastName:"Morgan", slackHandle:"ChrisMorgan", studentId:6, co: Cohort3);
 
-            Instructor Instructor1 = new Instructor(instructorId:1, firstName:"Jisie", lastName:"Davids", slackHandle:"JisieDavid", cohortId:3);
-            Instructor Instructor2 = new Instructor(instructorId:2, firstName:"Andy", lastName:"Collins", slackHandle:"AndyCollins", cohortId:1);
-            Instructor Instructor3 = new Instructor(instructorId:3, firstName:"Steve", lastName:"Brownlee", slackHandle:"steve", cohortId:2);
+            Instructor Instructor1 = new Instructor(instructorId:1, firstName:"Jisie", lastName:"Davids", slackHandle:"JisieDavid", cohortId:3, co: Cohort3);
+            Instructor Instructor2 = new Instructor(instructorId:2, firstName:"Andy", lastName:"Collins", slackHandle:"AndyCollins", cohortId:1, co: Cohort1);
+            Instructor Instructor3 = new Instructor(instructorId:3, firstName:"Steve", lastName:"Brownlee", slackHandle:"steve", cohortId:2, co: Cohort2);
 
 //Student List
         List<Student> allStudents = new List<Student>();
