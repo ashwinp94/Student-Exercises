@@ -30,10 +30,10 @@ namespace tracking_student
 
        public List<Exercise> studentExercises {get; set;}
 
-       public void ListExercises(){
-            foreach(Exercise exercises in studentExercises){
-                    Console.WriteLine($"{FirstName} {LastName} is assigned {exercises.ExerciseName}");
-                }
-         }
+    //    public void ListExercises(){
+    //         foreach(Exercise exercises in studentExercises){
+    //                 Console.WriteLine($"{FirstName} {LastName} is assigned {exercises.ExerciseName}");
+    //             }
+    //      }
     }
 }

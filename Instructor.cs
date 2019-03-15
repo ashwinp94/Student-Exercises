@@ -29,6 +29,8 @@ namespace tracking_student
         public void AssignExercises(Student student, Exercise exercise){
 
             student.studentExercises.Add(exercise);
+
+            Console.WriteLine($"{student.FirstName} {student.LastName} is assigned {exercise.ExerciseName} by {FirstName}");
         }
 
     }

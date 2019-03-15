@@ -97,12 +97,12 @@ namespace tracking_student
 
             Console.WriteLine("What students are working on: ");
 
-            Student1.ListExercises();
-            Student2.ListExercises();
-            Student3.ListExercises();
-            Student4.ListExercises();
-            Student5.ListExercises();
-            Student6.ListExercises();
+            // Student1.ListExercises();
+            // Student2.ListExercises();
+            // Student3.ListExercises();
+            // Student4.ListExercises();
+            // Student5.ListExercises();
+            // Student6.ListExercises();
 
 
         }
