@@ -19,4 +19,9 @@ namespace tracking_student
 
 
     }
+    public class ExerciseReport
+    {
+        public string ExerciseName1 { get; set; }
+        public int ExerciseLanguage1 { get; set; }
+    }
 }

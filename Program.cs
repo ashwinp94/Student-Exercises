@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace tracking_student
 {
@@ -32,33 +33,6 @@ namespace tracking_student
             Instructor Instructor2 = new Instructor(instructorId:2, firstName:"Andy", lastName:"Collins", slackHandle:"AndyCollins", cohortId:1, co: Cohort1);
             Instructor Instructor3 = new Instructor(instructorId:3, firstName:"Steve", lastName:"Brownlee", slackHandle:"steve", cohortId:2, co: Cohort2);
 
-//Student List
-        List<Student> allStudents = new List<Student>();
-            allStudents.Add(Student1);
-            allStudents.Add(Student2);
-            allStudents.Add(Student3);
-            allStudents.Add(Student4);
-            allStudents.Add(Student5);
-            allStudents.Add(Student6);
-
-            Console.WriteLine("All students at NSS:");
-            foreach(Student student in allStudents){
-                    Console.WriteLine($"{student.FirstName} {student.LastName}");
-               }
-
-//Exercise List
-        List<Exercise> allExercises = new List<Exercise>();
-            allExercises.Add(Exercise1);
-            allExercises.Add(Exercise2);
-            allExercises.Add(Exercise3);
-            allExercises.Add(Exercise4);
-            allExercises.Add(Exercise5);
-            allExercises.Add(Exercise6);
-
-            Console.WriteLine("All exercises at NSS:");
-            foreach(Exercise exercise in allExercises){
-                    Console.WriteLine($"Name: {exercise.ExerciseName} Language: {exercise.ExerciseLanguage}");
-               }
 
 //Assigning to Cohorts
 
@@ -80,6 +54,7 @@ namespace tracking_student
 
 //Assigning Exercises
 
+            Console.WriteLine("What students are working on: ");
             Instructor1.AssignExercises(Student5, Exercise3);
             Instructor1.AssignExercises(Student5, Exercise4);
             Instructor1.AssignExercises(Student6, Exercise3);
@@ -95,7 +70,6 @@ namespace tracking_student
             Instructor3.AssignExercises(Student3, Exercise5);
             Instructor3.AssignExercises(Student3, Exercise6);
 
-            Console.WriteLine("What students are working on: ");
 
             // Student1.ListExercises();
             // Student2.ListExercises();
@@ -103,6 +77,92 @@ namespace tracking_student
             // Student4.ListExercises();
             // Student5.ListExercises();
             // Student6.ListExercises();
+
+//Part 2
+
+//Student List
+        List<Student> allStudents = new List<Student>();
+            allStudents.Add(Student1);
+            allStudents.Add(Student2);
+            allStudents.Add(Student3);
+            allStudents.Add(Student4);
+            allStudents.Add(Student5);
+            allStudents.Add(Student6);
+
+            // Console.WriteLine("All students at NSS:");
+            // foreach(Student student in allStudents){
+            //         Console.WriteLine($"{student.FirstName} {student.LastName}");
+            //    }
+
+//Exercise List
+        List<Exercise> allExercises = new List<Exercise>();
+            allExercises.Add(Exercise1);
+            allExercises.Add(Exercise2);
+            allExercises.Add(Exercise3);
+            allExercises.Add(Exercise4);
+            allExercises.Add(Exercise5);
+            allExercises.Add(Exercise6);
+
+            // Console.WriteLine("All exercises at NSS:");
+            // foreach(Exercise exercise in allExercises){
+            //         Console.WriteLine($"Name: {exercise.ExerciseName} Language: {exercise.ExerciseLanguage}");
+            //    }
+
+
+//Cohort List
+        List<Cohort> allCohorts = new List<Cohort>();
+            allCohorts.Add(Cohort1);
+            allCohorts.Add(Cohort2);
+            allCohorts.Add(Cohort3);
+
+//Instructor List
+        List<Instructor> allInstructors = new List<Instructor>();
+            allInstructors.Add(Instructor1);
+            allInstructors.Add(Instructor2);
+            allInstructors.Add(Instructor3);
+
+
+//List exercises for the JavaScript language by using the Where() LINQ method.
+        List<Exercise> JSExercises = (from exercise in allExercises
+                where exercise.ExerciseLanguage == "Javascript"
+                select exercise).ToList();
+
+        foreach(Exercise ex in JSExercises)
+        {
+            Console.WriteLine($"List of JS Exercises: {ex.ExerciseName}");
+        }
+
+
+//List students in a particular cohort by using the Where() LINQ method.
+        List<Student> coStudent = (from student in allStudents
+                where student.Cohort == Cohort1
+                select student).ToList();
+
+        foreach(Student stu in coStudent)
+        {
+            Console.WriteLine($"List of Cohort 29 Students: {stu.FirstName} {stu.LastName}");
+        }
+
+
+//List instructors in a particular cohort by using the Where() LINQ method.
+        List<Instructor> coInstructor = (from instructor in allInstructors
+                where instructor.Cohort == Cohort1
+                select instructor).ToList();
+
+        foreach(Instructor ins in coInstructor)
+        {
+            Console.WriteLine($"Cohort 29 Instructor: {ins.FirstName} {ins.LastName}");
+        }
+
+//Sort the students by their last name.
+        List<Student> orderStudent = allStudents.OrderBy(x=> x.LastName).ToList();
+
+        foreach(Student stu in orderStudent)
+        {
+            Console.WriteLine($"All Students by Last Name: {stu.LastName} {stu.FirstName}");
+        }
+
+
 
 
         }
