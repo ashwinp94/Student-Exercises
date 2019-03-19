@@ -4,6 +4,12 @@ using System.Linq;
 
 namespace tracking_student
 {
+    class CohortReport
+    {
+            public string Cohort {get; set;}
+
+            public int CohortCount {get; set;}
+    }
     class Program
     {
         static void Main()
@@ -28,6 +34,8 @@ namespace tracking_student
             Student Student3 = new Student(cohortId:2, firstName:"Ryan", lastName:"Dillinger", slackHandle:"RyanDillinger", studentId:3, co: Cohort2);
             Student Student5 = new Student(cohortId:3, firstName:"Michael", lastName:"Yankura", slackHandle:"MichaelYankura", studentId:5, co: Cohort3);
             Student Student6 = new Student(cohortId:3, firstName:"Chris", lastName:"Morgan", slackHandle:"ChrisMorgan", studentId:6, co: Cohort3);
+            Student Student7 = new Student(cohortId:1, firstName:"Hannah", lastName:"Neal", slackHandle:"hNEal", studentId:7, co: Cohort1);
+
 
             Instructor Instructor1 = new Instructor(instructorId:1, firstName:"Jisie", lastName:"Davids", slackHandle:"JisieDavid", cohortId:3, co: Cohort3);
             Instructor Instructor2 = new Instructor(instructorId:2, firstName:"Andy", lastName:"Collins", slackHandle:"AndyCollins", cohortId:1, co: Cohort1);
@@ -38,6 +46,7 @@ namespace tracking_student
 
             Cohort1.studentList.Add(Student1);
             Cohort1.studentList.Add(Student4);
+            Cohort1.studentList.Add(Student7);
             Cohort2.studentList.Add(Student2);
             Cohort2.studentList.Add(Student3);
             Cohort3.studentList.Add(Student5);
@@ -56,6 +65,7 @@ namespace tracking_student
 
             Console.WriteLine("What students are working on: ");
             Instructor1.AssignExercises(Student5, Exercise3);
+            Instructor1.AssignExercises(Student5, Exercise1);
             Instructor1.AssignExercises(Student5, Exercise4);
             Instructor1.AssignExercises(Student6, Exercise3);
             Instructor1.AssignExercises(Student6, Exercise4);
@@ -88,6 +98,7 @@ namespace tracking_student
             allStudents.Add(Student4);
             allStudents.Add(Student5);
             allStudents.Add(Student6);
+            allStudents.Add(Student7);
 
             // Console.WriteLine("All students at NSS:");
             // foreach(Student student in allStudents){
@@ -122,6 +133,10 @@ namespace tracking_student
             allInstructors.Add(Instructor3);
 
 
+
+
+
+
 //List exercises for the JavaScript language by using the Where() LINQ method.
         List<Exercise> JSExercises = (from exercise in allExercises
                 where exercise.ExerciseLanguage == "Javascript"
@@ -154,6 +169,7 @@ namespace tracking_student
             Console.WriteLine($"Cohort 29 Instructor: {ins.FirstName} {ins.LastName}");
         }
 
+
 //Sort the students by their last name.
         List<Student> orderStudent = allStudents.OrderBy(x=> x.LastName).ToList();
 
@@ -162,6 +178,39 @@ namespace tracking_student
             Console.WriteLine($"All Students by Last Name: {stu.LastName} {stu.FirstName}");
         }
 
+
+//Display any students that aren't working on any exercises
+//(Make sure one of your student instances don't have any exercises. Create a new student if you need to.) intial catalog = database, server instead of data
+
+        List<Student> noExercise = allStudents.Where(x => x.studentExercises.Count == 0).ToList();
+
+        foreach(Student stu in noExercise)
+        {
+            Console.WriteLine($"No Exercise: {stu.FirstName} {stu.LastName}");
+        }
+
+//6 use orderby desecenting on the student exercises then use first(); on that list
+//Which student is working on the most exercises? Make sure one of your students has more exercises than the others.
+
+        IEnumerable<Student> orderStu = allStudents.OrderByDescending(x => x.studentExercises.Count).ToList();
+        Student mostExercise = orderStu.First();
+
+
+        Console.WriteLine($"all Exercises: {mostExercise.FirstName} {mostExercise.LastName}");
+
+//7 make a cohort report class
+
+        IEnumerable<CohortReport> stuReport = (from stu in allStudents
+        group stu by stu.Cohort.CohortName into cohortGroup
+        select new CohortReport(){
+           Cohort = cohortGroup.Key,
+           CohortCount = cohortGroup.Count(m => m.Cohort.CohortName == cohortGroup.Key)
+        }).ToList();
+
+        foreach(CohortReport c in stuReport)
+            {
+                Console.WriteLine($"{c.Cohort}: {c.CohortCount}");
+            }
 
 
 
